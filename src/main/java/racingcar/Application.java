@@ -2,6 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Vector;
 
 public class Application {
     public static void main(String[] args) {
@@ -29,6 +30,7 @@ public class Application {
         for (int i = 0; i < len; ++i) {
             count[i] = 0;
         }
+        Vector<String> winners = new Vector<>();
 
         System.out.println("실행 결과");
         boolean check = true;
@@ -41,6 +43,7 @@ public class Application {
                     System.out.print("-");
                     if (++count[i] == num) {
                         check = false;
+                        winners.add(cars[i]);
                     }
                 }
                 System.out.print("\n");
