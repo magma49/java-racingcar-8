@@ -23,5 +23,11 @@ public class Application {
             throw new IllegalArgumentException("잘못된 입력");
         }
 
+        int len = cars.length;
+        int[] count = new int[len];
+        for (int i = 0; i < len; ++i) {
+            count[i] = 0;
+        }
+
     }
 }
