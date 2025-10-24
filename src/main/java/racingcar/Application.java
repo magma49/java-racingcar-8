@@ -39,12 +39,14 @@ public class Application {
                 System.out.print(cars[i] + " : ");
                 for (int j = 0; j < count[i]; ++j)
                     System.out.print("-");
-                if (Randoms.pickNumberInRange(0, 9) >= 4) {
-                    System.out.print("-");
-                    if (++count[i] == num) {
-                        check = false;
-                        winners.add(cars[i]);
-                    }
+                if (Randoms.pickNumberInRange(0, 9) < 4) {
+                    System.out.print("\n");
+                    continue;
+                }
+                System.out.print("-");
+                if (++count[i] == num) {
+                    check = false;
+                    winners.add(cars[i]);
                 }
                 System.out.print("\n");
             }
