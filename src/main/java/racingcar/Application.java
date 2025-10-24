@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 public class Application {
     public static void main(String[] args) {
@@ -27,6 +28,24 @@ public class Application {
         int[] count = new int[len];
         for (int i = 0; i < len; ++i) {
             count[i] = 0;
+        }
+
+        System.out.println("실행 결과");
+        boolean check = true;
+        while (check) {
+            for (int i = 0; i < len; ++i) {
+                System.out.print(cars[i] + " : ");
+                for (int j = 0; j < count[i]; ++j)
+                    System.out.print("-");
+                if (Randoms.pickNumberInRange(0, 9) >= 4) {
+                    System.out.print("-");
+                    if (++count[i] == num) {
+                        check = false;
+                    }
+                }
+                System.out.print("\n");
+            }
+            System.out.print("\n");
         }
 
     }
