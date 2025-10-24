@@ -11,6 +11,17 @@ public class Application {
         String numstr = Console.readLine();
 
         String[] cars = input.split(",");
-        int num = Integer.parseInt(numstr);
+        for (String car : cars) {
+            if (car.length() == 0 || car.length() > 5)
+                throw new IllegalArgumentException("잘못된 입력");
+        }
+
+        int num;
+        try {
+            num = Integer.parseInt(numstr);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("잘못된 입력");
+        }
+
     }
 }
