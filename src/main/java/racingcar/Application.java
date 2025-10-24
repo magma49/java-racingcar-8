@@ -51,5 +51,14 @@ public class Application {
             System.out.print("\n");
         }
 
+        System.out.print("최종 우승자 : ");
+        int i = 0;
+        for (String winner : winners) {
+            if (i++ != 0)
+                System.out.print(",");
+            System.out.print(winner);
+        }
+        System.out.print("\n");
+
     }
 }
