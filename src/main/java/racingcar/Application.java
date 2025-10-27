@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Vector;
 
 public class Application {
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -39,17 +40,9 @@ public class Application {
         while (check) {
             for (int i = 0; i < len; ++i) {
                 System.out.print(cars[i] + " : ");
-                for (int j = 0; j < count[i]; ++j)
-                    System.out.print("-");
-                if (Randoms.pickNumberInRange(0, 9) < 4) {
-                    System.out.print("\n");
-                    continue;
-                }
-                System.out.print("-");
-                if (++count[i] == num) {
-                    check = false;
-                    winners.add(cars[i]);
-                }
+                printRace(count[i]);
+                checkRace(count, i);
+                check = checkWinner(winners, cars, num, count, i, check);
                 System.out.print("\n");
             }
             System.out.print("\n");
@@ -64,5 +57,26 @@ public class Application {
         }
         System.out.print("\n");
 
+    }
+
+    public static void printRace(int count) {
+        for (int i = 0; i < count; ++i)
+            System.out.print("-");
+    }
+
+    public static void checkRace(int[] count, int i) {
+        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+            ++count[i];
+            System.out.print("-");
+        }
+    }
+
+    public static boolean checkWinner(Vector<String> winners, String[] cars, int num, int[] count, int i,
+            boolean check) {
+        if (count[i] == num) {
+            check = false;
+            winners.add(cars[i]);
+        }
+        return check;
     }
 }
