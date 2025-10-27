@@ -3,6 +3,8 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Vector;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Application {
 
@@ -18,6 +20,7 @@ public class Application {
             if (car.length() == 0 || car.length() > 5)
                 throw new IllegalArgumentException("잘못된 입력");
         }
+        checkDuplicate(cars);
 
         int num;
         try {
@@ -57,6 +60,14 @@ public class Application {
         }
         System.out.print("\n");
 
+    }
+    public static void checkDuplicate(String[] cars) {
+        Set<String> seen = new HashSet<>();
+        for (String car : cars) {
+            if (!seen.add(car)) {
+                throw new IllegalArgumentException("잘못된 입력");
+            }
+        }
     }
 
     public static void printRace(int count) {
