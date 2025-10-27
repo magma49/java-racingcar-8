@@ -24,6 +24,8 @@ public class Application {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("잘못된 입력");
         }
+        if (num <= 0)
+            throw new IllegalArgumentException("잘못된 입력");
 
         int len = cars.length;
         int[] count = new int[len];
