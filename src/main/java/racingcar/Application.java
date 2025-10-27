@@ -55,12 +55,13 @@ public class Application {
         int i = 0;
         for (String winner : winners) {
             if (i++ != 0)
-                System.out.print(",");
+                System.out.print(", ");
             System.out.print(winner);
         }
         System.out.print("\n");
 
     }
+
     public static void checkDuplicate(String[] cars) {
         Set<String> seen = new HashSet<>();
         for (String car : cars) {
