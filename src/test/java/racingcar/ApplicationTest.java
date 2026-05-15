@@ -38,7 +38,7 @@ class ApplicationTest extends NsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni,jun", "2");
-                    assertThat(output()).contains("pobi : -", "woni : ","jun : ", "최종 우승자 : pobi,jun");
+                    assertThat(output()).contains("pobi : -", "woni : ","jun : ", "최종 우승자 : pobi, jun");
                 },
                 7,1,3,2,2,4,8,6,5
         );
